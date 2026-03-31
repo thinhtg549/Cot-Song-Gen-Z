@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Công Nghệ - Chia Sẻ Kiến Thức & Tin Tức</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>TechBlog</h1>
+                    <p class="tagline">Chia Sẻ Kiến Thức Công Nghệ</p>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#" class="nav-link active">Trang Chủ</a></li>
+                        <li><a href="#" class="nav-link">Tin Tức</a></li>
+                        <li><a href="#" class="nav-link">Hướng Dẫn</a></li>
+                        <li><a href="#" class="nav-link">Sự Kiện</a></li>
+                        <li><a href="#" class="nav-link">Liên Hệ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Countdown -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">KỶ NIỆM 10 NĂM THÀNH LẬP BLOG</h2>
+            <p class="hero-subtitle">Cùng khám phá những khoảnh khắc đáng nhớ</p>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="days">30</span>
+                    <span class="countdown-label">NGÀY</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">12</span>
+                    <span class="countdown-label">GIỜ</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">45</span>
+                    <span class="countdown-label">PHÚT</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">30</span>
+                    <span class="countdown-label">GIÂY</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-background"></div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">Về Blog Của Chúng Tôi</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Chia Sẻ Kiến Thức</h3>
+                    <p>Cung cấp những bài viết chuyên sâu về công nghệ, lập trình và phát triển web.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Cập Nhật Tin Tức</h3>
+                    <p>Theo dõi những xu hướng công nghệ mới nhất trong ngành IT.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Hỗ Trợ Cộng Đồng</h3>
+                    <p>Xây dựng một cộng đồng học tập và phát triển kỹ năng chung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Articles -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Bài Viết Nổi Bật</h2>
+                <a href="#" class="view-more">Xem Thêm →</a>
+            </div>
+            <div class="featured-grid">
+                <article class="featured-card">
+                    <div class="featured-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                    <div class="featured-content">
+                        <span class="badge">Lập Trình</span>
+                        <h3>10 Mẹo JavaScript Để Tăng Năng Suất Lập Trình</h3>
+                        <p>Khám phá những mẹo và trick hữu ích trong JavaScript để viết code nhanh hơn và hiệu quả hơn.</p>
+                        <div class="article-meta">
+                            <span class="date">31/03/2026</span>
+                            <span class="author">Nguyễn Văn A</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="featured-card">
+                    <div class="featured-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                    <div class="featured-content">
+                        <span class="badge">Web Design</span>
+                        <h3>Thiết Kế UI/UX Hiện Đại Năm 2026</h3>
+                        <p>Xu hướng thiết kế giao diện người dùng mới nhất và cách áp dụng chúng vào dự án.</p>
+                        <div class="article-meta">
+                            <span class="date">30/03/2026</span>
+                            <span class="author">Trần Thị B</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="featured-card">
+                    <div class="featured-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                    <div class="featured-content">
+                        <span class="badge">DevOps</span>
+                        <h3>Docker & Kubernetes: Từ Cơ Bản Đến Nâng Cao</h3>
+                        <p>Hướng dẫn chi tiết về containerization và orchestration cho ứng dụng hiện đại.</p>
+                        <div class="article-meta">
+                            <span class="date">29/03/2026</span>
+                            <span class="author">Lê Minh C</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sự Kiện Sắp Tới</h2>
+                <a href="#" class="view-more">Xem Tất Cả →</a>
+            </div>
+            <div class="events-list">
+                <div class="event-item">
+                    <div class="event-date">
+                        <span class="event-day">15</span>
+                        <span class="event-month">APR</span>
+                    </div>
+                    <div class="event-details">
+                        <h4>Webinar: AI & Machine Learning Thực Tiễn</h4>
+                        <p>Khám phá ứng dụng AI trong các dự án thực tế cùng các chuyên gia hàng đầu.</p>
+                        <span class="event-time">⏰ 19:30 - 21:00</span>
+                    </div>
+                </div>
+
+                <div class="event-item">
+                    <div class="event-date">
+                        <span class="event-day">20</span>
+                        <span class="event-month">APR</span>
+                    </div>
+                    <div class="event-details">
+                        <h4>Workshop: React Advanced Concepts</h4>
+                        <p>Học các kỹ thuật React tingâng cao: Custom Hooks, Context API, Performance Optimization.</p>
+                        <span class="event-time">⏰ 14:00 - 17:00</span>
+                    </div>
+                </div>
+
+                <div class="event-item">
+                    <div class="event-date">
+                        <span class="event-day">25</span>
+                        <span class="event-month">APR</span>
+                    </div>
+                    <div class="event-details">
+                        <h4>Meetup: Cloud Computing Trends 2026</h4>
+                        <p>Thảo luận về những xu hướng và công nghệ mới trong cloud computing.</p>
+                        <span class="event-time">⏰ 18:30 - 20:30</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Articles Grid -->
+    <section class="articles-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Bài Viết Mới Nhất</h2>
+                <a href="#" class="view-more">Xem Thêm →</a>
+            </div>
+            <div class="articles-grid">
+                <article class="article-card">
+                    <div class="article-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                    <div class="article-body">
+                        <span class="badge badge-small">Backend</span>
+                        <h4>Node.js Best Practices 2026</h4>
+                        <p>Những best practices khi phát triển ứng dụng Node.js trong dự án lớn.</p>
+                        <div class="article-footer">
+                            <span class="date">28/03/2026</span>
+                            <span class="read-time">5 phút đọc</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
+                    <div class="article-body">
+                        <span class="badge badge-small">Frontend</span>
+                        <h4>Vue 3 vs React: Lựa Chọn Đúng Cho Dự Án</h4>
+                        <p>So sánh chi tiết giữa Vue.js 3 và React để chọn framework phù hợp.</p>
+                        <div class="article-footer">
+                            <span class="date">27/03/2026</span>
+                            <span class="read-time">7 phút đọc</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image" style="background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%);"></div>
+                    <div class="article-body">
+                        <span class="badge badge-small">Database</span>
+                        <h4>PostgreSQL vs MongoDB: Khi Nào Sử Dụng?</h4>
+                        <p>Hướng dẫn chi tiết để lựa chọn giữa SQL và NoSQL database cho dự án của bạn.</p>
+                        <div class="article-footer">
+                            <span class="date">26/03/2026</span>
+                            <span class="read-time">8 phút đọc</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                    <div class="article-body">
+                        <span class="badge badge-small">Security</span>
+                        <h4>Web Security: Bảo Vệ Ứng Dụng Của Bạn</h4>
+                        <p>Hướng dẫn toàn diện về bảo mật web: OAuth, JWT, CORS và nhiều hơn nữa.</p>
+                        <div class="article-footer">
+                            <span class="date">25/03/2026</span>
+                            <span class="read-time">10 phút đọc</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                    <div class="article-body">
+                        <span class="badge badge-small">Testing</span>
+                        <h4>Unit Testing với Jest: Hướng Dẫn Hoàn Chỉnh</h4>
+                        <p>Viết unit test hiệu quả với Jest framework cho các ứng dụng JavaScript.</p>
+                        <div class="article-footer">
+                            <span class="date">24/03/2026</span>
+                            <span class="read-time">9 phút đọc</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <div class="article-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                    <div class="article-body">
+                        <span class="badge badge-small">Performance</span>
+                        <h4>Tối Ưu Hóa Website: Load Time & Performance</h4>
+                        <p>Bí quyết để website tải nhanh hơn và cải thiện trải nghiệm người dùng.</p>
+                        <div class="article-footer">
+                            <span class="date">23/03/2026</span>
+                            <span class="read-time">6 phút đọc</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Đăng Ký Nhận Tin Tức Mới Nhất</h2>
+                <p>Cập nhật bài viết, sự kiện và khuyến mãi đặc biệt trực tiếp vào email của bạn.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Nhập email của bạn..." required>
+                    <button type="submit">Đăng Ký</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Về Blog</h4>
+                    <p>TechBlog là nơi chia sẻ kiến thức công nghệ, hướng dẫn lập trình và cập nhật tin tức ngành IT cho cộng đồng học lập trình.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Danh Mục</h4>
+                    <ul>
+                        <li><a href="#">Lập Trình</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Mobile Development</a></li>
+                        <li><a href="#">DevOps</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Truy Cập Nhanh</h4>
+                    <ul>
+                        <li><a href="#">Trang Chủ</a></li>
+                        <li><a href="#">Bài Viết</a></li>
+                        <li><a href="#">Sự Kiện</a></li>
+                        <li><a href="#">Liên Hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Liên Hệ</h4>
+                    <p>Email: <a href="mailto:contact@techblog.com">contact@techblog.com</a></p>
+                    <p>Điện thoại: (028) 1234 5678</p>
+                    <p>Địa chỉ: Thành phố Hồ Chí Minh</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TechBlog. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">Facebook</a>
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">LinkedIn</a>
+                    <a href="#" class="social-link">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
