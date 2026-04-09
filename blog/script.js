@@ -1,3 +1,33 @@
+// Dropdown Menu Click Handler
+function setupDropdownMenu() {
+    const navItemDropdown = document.querySelector('.nav-item-dropdown');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    const navLink = document.querySelector('.nav-item-dropdown > .nav-link');
+    const dropdownLinks = document.querySelectorAll('.dropdown-link');
+
+    if (!navLink || !dropdownMenu) return;
+
+    // Toggle dropdown on click
+    navLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdownMenu.classList.toggle('active');
+    });
+
+    // Close dropdown when clicking on a category
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            dropdownMenu.classList.remove('active');
+        });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navItemDropdown.contains(e.target)) {
+            dropdownMenu.classList.remove('active');
+        }
+    });
+}
+
 // Countdown Timer
 function updateCountdown() {
     // Set the target date (anniversary date)
@@ -30,6 +60,17 @@ function updateCountdown() {
     }, 1000);
 }
 
+// Flag to track if scrolling from navigation click
+let isNavigationScroll = false;
+let scrollTimeout;
+
+// Remove highlight animation from all sections
+function removeHighlightFromAll() {
+    document.querySelectorAll('section.section-highlight').forEach(section => {
+        section.classList.remove('section-highlight');
+    });
+}
+
 // Smooth scroll for navigation links
 function setupSmoothScroll() {
     const links = document.querySelectorAll('a[href^="#"]');
@@ -37,10 +78,31 @@ function setupSmoothScroll() {
         link.addEventListener('click', (e) => {
             if (link.getAttribute('href') !== '#') {
                 e.preventDefault();
+                // Set flag to prevent animation triggers during navigation scroll
+                isNavigationScroll = true;
+                
                 const targetId = link.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
+                    // Remove highlight from all sections first
+                    removeHighlightFromAll();
+                    
+                    // Add highlight animation to target section
+                    targetElement.classList.add('section-highlight');
+                    
+                    // Scroll to element
                     targetElement.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Reset flag after scroll completes (800ms for smooth scroll)
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(() => {
+                        isNavigationScroll = false;
+                    }, 800);
+                    
+                    // Remove highlight animation after 3 seconds
+                    setTimeout(() => {
+                        targetElement.classList.remove('section-highlight');
+                    }, 3000);
                 }
             }
         });
@@ -65,21 +127,35 @@ function setupNewsletterForm() {
 // Add active class to navigation on scroll
 function setupScrollNavigation() {
     const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('nav a');
     
     window.addEventListener('scroll', () => {
         let current = '';
+        
+        // Find which section is currently in viewport
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            if (pageYOffset >= sectionTop - 60) {
+            const sectionHeight = section.clientHeight;
+            
+            // Check if section is actually visible in viewport
+            if (pageYOffset >= sectionTop - 200 && pageYOffset < sectionTop + sectionHeight - 200) {
                 current = section.getAttribute('id');
             }
         });
         
+        // If no section is active and we're near the top, active "home"
+        if (!current && pageYOffset < 200) {
+            current = 'home';
+        }
+        
+        // Update nav links styling
         navLinks.forEach(link => {
-            link.classList.remove('active');
+            link.style.borderBottom = 'none';
+            link.style.color = '#333';
+            
             if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
+                link.style.borderBottom = '3px solid #6366f1';
+                link.style.color = '#6366f1';
             }
         });
     });
@@ -94,8 +170,14 @@ function setupScrollAnimations() {
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            // Only trigger animation if not currently scrolling from navigation
+            if (entry.isIntersecting && !isNavigationScroll) {
                 entry.target.style.animation = 'slideUp 0.6s ease-out forwards';
+                observer.unobserve(entry.target);
+            } else if (entry.isIntersecting && isNavigationScroll) {
+                // If already visible and navigating, just show without animation
+                entry.target.style.animation = 'none';
+                entry.target.style.opacity = '1';
                 observer.unobserve(entry.target);
             }
         });
@@ -103,7 +185,7 @@ function setupScrollAnimations() {
     
     // Observe all cards
     const cards = document.querySelectorAll(
-        '.article-card, .featured-card, .event-item, .about-card'
+        '.article-card, .featured-card, .about-card'
     );
     cards.forEach((card, index) => {
         card.style.opacity = '0';
@@ -125,8 +207,11 @@ function setupArticleCards() {
     });
 }
 
+// Contact cards now use href, no need for click handler
+
 // Initialize all functions when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    setupDropdownMenu();
     updateCountdown();
     setupSmoothScroll();
     setupNewsletterForm();
